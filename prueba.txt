@@ -1,0 +1,23 @@
+--- Comentario de una sola lines sdasdas
+
+/*
+Comentario de varias lineas 
+*/
+
+@
+
+CrearBD ejemplo = nueva CrearBD();
+EliminarBD elimina = nueva EliminarBD();
+CrearColeccion colec = nueva CrearColeccion("NombreColeccion");sda
+EliminarColeccion eliminacolec = nueva EliminarColeccion("NombreColeccion");
+InsertarUnico insertadoc = nueva InsertarUnico("NombreColeccion","{"nombre":"Obra Literaria","autor":"Jorge Luis"}");
+EliminarUnico eliminadoc = nueva EliminarUnico("NombreColeccion","{"nombre":"Obra Literaria"}");
+BuscarTodo todo = nueva BuscarTodo ("NombreColeccion");sdad+
+BuscarUnico todo = nueva BuscarUnico ("NombreColeccion");
+ActualizarUnico actualizadoc = nueva ActualizarUnico("NombreColeccion",
+"{
+    "nombre" : "Obra Literaria"
+},
+{
+    $set: {"autor" : "Mario Vargas"}
+}");

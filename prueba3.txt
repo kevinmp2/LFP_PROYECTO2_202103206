@@ -1,0 +1,11 @@
+--- Comentario de una sola lines sdasdas
+
+/*
+Comentario de varias lineas 
+*/
+
+@
+
+CrearBD ejemplo = nueva CrearBD();
+EliminarBD elimina = nueva EliminarBD();
+
