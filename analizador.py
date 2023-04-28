@@ -44,7 +44,7 @@ class Analizador_l:
         archivo2.write('Start[label="", shape=none]\n')
         #archivo2.write('Start -> a0 [label="Tabla de Tokens"]\n')
         archivo2.write('a0[shape=none label=<<TABLE align="center" border="3" cellspacing="3" cellpadding="20">')
-        archivo2.write('<TR><TD><FONT FACE="bold">No.</FONT></TD><TD><FONT FACE="bold">Token</FONT></TD><TD><FONT FACE="bold">Lexema</FONT></TD><TD><FONT FACE="bold">Linea</FONT></TD><TD><FONT FACE="bold">Columna</FONT></TD></TR>')
+        archivo2.write('<TR><TD><FONT FACE="bold">No.</FONT></TD><TD><FONT FACE="bold">Lexema</FONT></TD><TD><FONT FACE="bold">Token</FONT></TD><TD><FONT FACE="bold">Linea</FONT></TD><TD><FONT FACE="bold">Columna</FONT></TD></TR>')
         print('Tokens')
         contador_token = 0
         for token in self.tokens:

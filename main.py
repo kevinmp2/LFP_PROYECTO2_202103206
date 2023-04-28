@@ -60,6 +60,9 @@ class Pantalla_Principal():
         boton_guardar = Button(ventana, command = self.limpiar_texto_2, text = 'Limpiar', cursor= 'hand2', bg = 'SeaGreen1', width= 10, height= 1, font= ('corabad', 10 , 'bold'))
         boton_guardar.place(x = 1217, y = 250)
 
+        boton_guardar = Button(ventana,  command = ventana.destroy, text = 'Salir', cursor= 'hand2', bg = 'SeaGreen1', width= 10, height= 1, font= ('corabad', 10 , 'bold'))
+        boton_guardar.place(x = 650, y = 700)
+
         global area_texto
         area_texto = scrolledtext.ScrolledText(ventana, width = 65, height = 25)
         area_texto.place(x = 85, y = 280)

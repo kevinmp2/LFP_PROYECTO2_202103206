@@ -1,0 +1,46 @@
+Palabras reservadas:
+CrearDB
+EliminarDB
+CrearColeccion
+EliminarColeccion
+InsertarUnico
+ActualizarUnico
+EliminarUnico
+BuscarTodo
+BuscarUnico
+nueva
+(
+)
+; 
+=
+ID -> [a-z_A-Z_][a-z_A-Z_0-9]*
+NUMERO -> [0-9]*
+STRING -> "[^"]*"
+IGNORE -> \t\r\
+COMENTARIOS -> //.* | /\*([^*]|[/*+[]^*/])*\*+/"
+
+init : instrucciones
+
+instrucciones : instruccion instrucciones | instruccion
+
+instruccion : crearDB
+		| eliminar_DB
+		| crear_coleccion
+		| eliminar_coleccion
+		| insertar_unico
+		| actualizar_unico
+		| eliminar_unico
+		| buscar_todo
+		| buscar_unico
+
+crearDB : CrearDB ID = nueva CrearDB();
+eliminar_DB : EliminarDB ID = nueva EliminarDB();
+crear_coleccion : CrearColeccion ID = nueva CrearColeccion(ID);
+eliminar_coleccion : EliminarColeccion ID = nueva EliminarColeccion(ID);
+insertar_unico : InsertarUnico ID = nueva InsertarUnico(ID, Cadena);
+actualizar_unico : ActualizarUnico ID = nueva ActualizarUnico(ID, Cadena);
+eliminar_unico : EliminarUnico ID = nueva EliminarUnico(ID, Cadena);
+buscar_todo : BuscarTodo ID = nueva BuscarTodo(ID);
+buscar_unico : BuscarUnico ID = nueva BuscarUnico(ID);
+
+		

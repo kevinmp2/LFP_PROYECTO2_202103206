@@ -206,7 +206,7 @@ class Analizador_sintactico:
         if self.lista_tokens[self.i].tipo == 'EliminarBD':
             self.i += 1
             if self.lista_tokens[self.i].tipo == 'ID':
-                id = self.lista_tokens[self.i].puntero
+                #id = self.lista_tokens[self.i].puntero
                 self.i += 1
                 if self.lista_tokens[self.i].tipo == 'Igual':
                     self.i += 1
@@ -220,7 +220,7 @@ class Analizador_sintactico:
                                     self.i += 1
                                     if self.lista_tokens[self.i].tipo == 'Punto y coma':
                                         self.i += 1
-                                        comando = f'db.dropDatabase(\'{id}\');\n'
+                                        comando = f'db.dropDatabase();\n'
                                         self.texto_salida += comando
                                     else:
                                         # Dudaaaaa
