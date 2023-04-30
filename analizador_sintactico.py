@@ -408,7 +408,7 @@ class Analizador_sintactico:
         if self.lista_tokens[self.i].tipo == 'InsertarUnico':
             self.i += 1
             if self.lista_tokens[self.i].tipo == 'ID':
-                id = self.lista_tokens[self.i].puntero
+                #id = self.lista_tokens[self.i].puntero
                 self.i += 1
                 if self.lista_tokens[self.i].tipo == 'Igual':
                     self.i += 1
@@ -419,20 +419,20 @@ class Analizador_sintactico:
                             if self.lista_tokens[self.i].tipo == 'Parentesis abierto':
                                 self.i += 1
                                 if self.lista_tokens[self.i].tipo == 'Cadena':
-                                    cadena = self.lista_tokens[self.i].puntero
+                                    cadena = self.lista_tokens[self.i].puntero.replace("\"","")
                                     print('Entrrooooooooo', cadena)
                                     self.i += 1
                                     if self.lista_tokens[self.i].tipo == 'Coma':
                                         self.i += 1
                                         if self.lista_tokens[self.i].tipo == 'Cadena':
-                                            cadena_2 = self.lista_tokens[self.i].puntero
+                                            cadena_2 = self.lista_tokens[self.i].puntero.replace('"', '', 1)
                                             print('Entrrooooooooo', cadena_2)
                                             self.i += 1
                                             if self.lista_tokens[self.i].tipo == 'Parentesis cerrado':
                                                 self.i += 1
                                                 if self.lista_tokens[self.i].tipo == 'Punto y coma':
                                                     self.i += 1
-                                                    comando = f'db.{id}.insertOne({cadena}, {cadena_2});\n'
+                                                    comando = f'db.{cadena}.insertOne(\n{cadena_2});\n'
                                                     self.texto_salida += comando
                                                 else:
                                                     # Dudaaaaa
@@ -495,7 +495,7 @@ class Analizador_sintactico:
         if self.lista_tokens[self.i].tipo == 'ActualizarUnico':
             self.i += 1
             if self.lista_tokens[self.i].tipo == 'ID':
-                id = self.lista_tokens[self.i].puntero
+                #id = self.lista_tokens[self.i].puntero
                 self.i += 1
                 if self.lista_tokens[self.i].tipo == 'Igual':
                     self.i += 1
@@ -506,13 +506,13 @@ class Analizador_sintactico:
                             if self.lista_tokens[self.i].tipo == 'Parentesis abierto':
                                 self.i += 1
                                 if self.lista_tokens[self.i].tipo == 'Cadena':
-                                    cadena = self.lista_tokens[self.i].puntero
+                                    cadena = self.lista_tokens[self.i].puntero.replace("\"","")
                                     print('Entrrooooooooo', cadena)
                                     self.i += 1
                                     if self.lista_tokens[self.i].tipo == 'Coma':
                                         self.i += 1
                                         if self.lista_tokens[self.i].tipo == 'Cadena':
-                                            cadena_2 = self.lista_tokens[self.i].puntero
+                                            cadena_2 = self.lista_tokens[self.i].puntero.replace('"', '', 1)
                                             print('Entrrooooooooo', cadena_2)
                                             self.i += 1
                                             if self.lista_tokens[self.i].tipo == 'Parentesis cerrado':
@@ -520,7 +520,7 @@ class Analizador_sintactico:
                                                 if self.lista_tokens[self.i].tipo == 'Punto y coma':
                                                     self.i += 1
                                                     # salto_de_linea = '\n'
-                                                    comando = f'db.{id}.insertOne({cadena}, {cadena_2});\n'
+                                                    comando = f'db.{cadena}.insertOne(\n{cadena_2});\n'
                                                     self.texto_salida += comando
                                                 else:
                                                     # Dudaaaaa
@@ -584,7 +584,7 @@ class Analizador_sintactico:
         if self.lista_tokens[self.i].tipo == 'EliminarUnico':
             self.i += 1
             if self.lista_tokens[self.i].tipo == 'ID':
-                id = self.lista_tokens[self.i].puntero
+                #id = self.lista_tokens[self.i].puntero
                 self.i += 1
                 if self.lista_tokens[self.i].tipo == 'Igual':
                     self.i += 1
@@ -595,13 +595,13 @@ class Analizador_sintactico:
                             if self.lista_tokens[self.i].tipo == 'Parentesis abierto':
                                 self.i += 1
                                 if self.lista_tokens[self.i].tipo == 'Cadena':
-                                    cadena = self.lista_tokens[self.i].puntero
+                                    cadena = self.lista_tokens[self.i].puntero.replace("\"","")
                                     print('Entrrooooooooo', cadena)
                                     self.i += 1
                                     if self.lista_tokens[self.i].tipo == 'Coma':
                                         self.i += 1
                                         if self.lista_tokens[self.i].tipo == 'Cadena':
-                                            cadena_2 = self.lista_tokens[self.i].puntero
+                                            cadena_2 = self.lista_tokens[self.i].puntero.replace('"', '', 1)
                                             print('Entrrooooooooo', cadena_2)
                                             self.i += 1
                                             if self.lista_tokens[self.i].tipo == 'Parentesis cerrado':
@@ -609,7 +609,7 @@ class Analizador_sintactico:
                                                 if self.lista_tokens[self.i].tipo == 'Punto y coma':
                                                     self.i += 1
                                                     # salto_de_linea = '\n'
-                                                    comando = f'db.{id}.insertOne({cadena}, {cadena_2});\n'
+                                                    comando = f'db.{cadena}.insertOne(\n{cadena_2});\n'
                                                     self.texto_salida += comando
                                                 else:
                                                     # Dudaaaaa
