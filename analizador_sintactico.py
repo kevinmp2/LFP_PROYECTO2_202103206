@@ -520,7 +520,7 @@ class Analizador_sintactico:
                                                 if self.lista_tokens[self.i].tipo == 'Punto y coma':
                                                     self.i += 1
                                                     # salto_de_linea = '\n'
-                                                    comando = f'db.{cadena}.insertOne(\n{cadena_2});\n'
+                                                    comando = f'db.{cadena}.updateOne(\n{cadena_2});\n'
                                                     self.texto_salida += comando
                                                 else:
                                                     # Dudaaaaa
@@ -609,7 +609,7 @@ class Analizador_sintactico:
                                                 if self.lista_tokens[self.i].tipo == 'Punto y coma':
                                                     self.i += 1
                                                     # salto_de_linea = '\n'
-                                                    comando = f'db.{cadena}.insertOne(\n{cadena_2});\n'
+                                                    comando = f'db.{cadena}.deleteOne((\n{cadena_2});\n'
                                                     self.texto_salida += comando
                                                 else:
                                                     # Dudaaaaa

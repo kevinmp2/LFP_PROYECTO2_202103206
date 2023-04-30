@@ -73,38 +73,6 @@ class Pantalla_Principal():
         
         ventana.mainloop()
     
-    def limpiar_texto(self):
-        # Si el cuadro de texto no está vacío, preguntar al usuario si desea guardar el contenido
-        if len(area_texto.get('1.0', tk.END)) > 1:
-            respuesta = tk.messagebox.askyesnocancel('Guardar archivo', '¿Desea guardar la información antes de limpiar?')
-            if respuesta is not None:
-                if respuesta:
-                    self.guardar_archivo()
-                area_texto.delete('1.0', tk.END)
-        else:
-            area_texto.delete('1.0', tk.END)
-
-    def limpiar_texto_2(self):
-        # Si el cuadro de texto no está vacío, preguntar al usuario si desea guardar el contenido
-        if len(area_texto2.get('1.0', tk.END)) > 1:
-            respuesta = tk.messagebox.askyesnocancel('Guardar archivo', '¿Desea guardar la información antes de limpiar?')
-            if respuesta is not None:
-                if respuesta:
-                    self.guardar_archivo()
-                area_texto2.delete('1.0', tk.END)
-        else:
-            area_texto2.delete('1.0', tk.END)
-    
-    def guardar_archivo(self):
-        # Abrir un diálogo de guardado de archivo
-        archivo = filedialog.asksaveasfile(defaultextension='.txt', filetypes=[('Archivo de texto', '*.txt'), ('Todos los archivos', '*.*')])
-    
-        # Si el usuario no cancela el diálogo, guardar el contenido del cuadro de texto en el archivo
-        if archivo is not None:
-            contenido = area_texto.get('1.0', tk.END)
-            archivo.write(contenido)
-            archivo.close()
-
     def abrir_archivo(self):
         x = ''
         Tk().withdraw()
@@ -120,14 +88,47 @@ class Pantalla_Principal():
         self.texto = x
         global area_texto
         area_texto.insert('1.02', x)
+    
+    def limpiar_texto(self):
+        # Si el cuadro de texto no está vacío, preguntar al usuario si desea guardar el contenido
+        if len(area_texto.get('1.0', tk.END)) > 1:
+            respuesta = tk.messagebox.askyesnocancel('Guardar archivo', '¿Desea guardar la información antes de limpiar?')
+            if respuesta is not None:
+                if respuesta:
+                    self.guardar_archivo()
+                area_texto.delete('1.0', tk.END)
+        else:
+            area_texto.delete('1.0', tk.END)
         
     def analizar_texto(self):
-        global area_texto
-        texto = area_texto.get('0.1', END)
+        global area_texto, area_texto2
+        texto = area_texto.get('0.1', tk.END)
         analizado = analizador.analizar(texto)
         salida = analizador_sintac.analizar(analizado)
-        area_texto2.insert('1.02', salida)
+        area_texto2.insert('1.0', salida)
+    
+    def limpiar_texto_2(self):
+        global area_texto2  # asegurarse de que estás usando la variable global
 
+        # Si el cuadro de texto no está vacío, preguntar al usuario si desea guardar el contenido
+        if len(area_texto2.get('1.0', tk.END)) > 1:
+            respuesta = tk.messagebox.askyesnocancel('Guardar archivo', '¿Desea guardar la información antes de limpiar?')
+            if respuesta is not None:
+                if respuesta:
+                    self.guardar_archivo()
+
+        # Borrar el contenido del widget tk.Text original
+        area_texto2.delete('1.0', tk.END)
+    
+    def guardar_archivo(self):
+        # Abrir un diálogo de guardado de archivo
+        archivo = filedialog.asksaveasfile(defaultextension='.txt', filetypes=[('Archivo de texto', '*.txt'), ('Todos los archivos', '*.*')])
+    
+        # Si el usuario no cancela el diálogo, guardar el contenido del cuadro de texto en el archivo
+        if archivo is not None:
+            contenido = area_texto.get('1.0', tk.END)
+            archivo.write(contenido)
+            archivo.close()
 
     def guardar_como(self):
         # Obtener el contenido del área de texto

@@ -1,0 +1,21 @@
+
+InsertarUnico uno = nueva InsertarUnico("Coleccion1",
+"
+	{
+		"id":"1",
+		"nombre":"Calificacion 1",
+		"anio":"2023",
+		"curso":"Lenguajes Formales y de Programacion"
+	}
+");
+
+InsertarUnico insertadoc = nueva InsertarUnico("NombreColeccion","
+	{
+		"nombre":"Obra Literaria",
+		"autor":"Jorge Luis"
+	}
+");
+
+
+
+
